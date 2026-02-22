@@ -1,0 +1,10 @@
+Resource,Weight
+Population,0
+MetallicElements,0.2
+Timber,0.2
+MetallicAlloys,0.6
+MetallicAlloysWaste,-0.6
+Electronics,1
+ElectronicsWaste,-1
+Housing,0.8
+HousingWaste,-0.8

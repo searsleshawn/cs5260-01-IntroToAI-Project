@@ -1,0 +1,29 @@
+(TRANSFORM BUILD_HOUSING
+  (INPUTS
+    (Population 5)
+    (MetallicElements 1)
+    (Timber 5)
+    (MetallicAlloys 3))
+  (OUTPUTS
+    (Housing 1)
+    (HousingWaste 1)
+    (Population 5)))
+
+(TRANSFORM MAKE_ALLOYS
+  (INPUTS
+    (Population 1)
+    (MetallicElements 2))
+  (OUTPUTS
+    (Population 1)
+    (MetallicAlloys 1)
+    (MetallicAlloysWaste 1)))
+
+(TRANSFORM MAKE_ELECTRONICS
+  (INPUTS
+    (Population 1)
+    (MetallicElements 3)
+    (MetallicAlloys 2))
+  (OUTPUTS
+    (Population 1)
+    (Electronics 2)
+    (ElectronicsWaste 1)))
