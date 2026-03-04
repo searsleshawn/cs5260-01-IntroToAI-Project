@@ -20,7 +20,7 @@ def state_quality(
 
     - Uses all resources present in the country's inventory.
     - Missing weights default to 0 via ResourceWeights.get().
-    - 'exclude' lets you omit resources from scoring if you want (optional).
+    - 'exclude' omits resources from scoring.
     """
     c = world.get_country(country_name)
 

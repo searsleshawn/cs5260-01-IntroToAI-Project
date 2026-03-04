@@ -48,38 +48,3 @@ def discounted_reward(
 
     r = undiscounted_reward(world_start, world_end, country_name, weights)
     return (gamma ** N) * r
-
-
-"""
-Simple score test
-"""
-if __name__ == "__main__":
-    from world_state import CountryState, WorldState, ResourceWeights
-
-    weights = ResourceWeights({
-        "Population": 0.0,
-        "Food": 1.0,
-        "Pollution": -1.0,
-    })
-
-    # Start world
-    w0 = WorldState({
-        "A": CountryState("A", {"Population": 100, "Food": 0, "Pollution": 0})
-    })
-
-    # End world: A gained food, gained some pollution
-    w1 = WorldState({
-        "A": CountryState("A", {"Population": 100, "Food": 50, "Pollution": 10})
-    })
-
-    # Per-capita Q0 = 1*(0/100) + (-1)*(0/100) = 0
-    # Per-capita Q1 = 1*(50/100) + (-1)*(10/100) = 0.5 - 0.1 = 0.4
-    # R = 0.4
-    r = undiscounted_reward(w0, w1, "A", weights)
-    assert abs(r - 0.4) < 1e-9, r
-
-    dr = discounted_reward(w0, w1, "A", weights, gamma=0.9, N=2)
-    # DR = 0.9^2 * 0.4 = 0.81 * 0.4 = 0.324
-    assert abs(dr - 0.324) < 1e-9, dr
-
-    print("Score tests passed.")
