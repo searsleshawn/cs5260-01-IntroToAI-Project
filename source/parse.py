@@ -22,7 +22,6 @@ REQUIRED_RESOURCES = {
     "HousingWaste",
 }
 
-
 def _to_number(s: str) -> Number:
     """
     Convert CSV cell to float. Treat empty as 0.
