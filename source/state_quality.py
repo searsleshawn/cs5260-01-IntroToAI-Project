@@ -41,8 +41,6 @@
 
 from __future__ import annotations
 
-from typing import Iterable, Optional
-
 from source.world_state import WorldState, ResourceWeights
 
 
@@ -54,16 +52,13 @@ def state_quality(
     pop_floor: float = 1.0,
 ) -> float:
     """
-    Improved per-capita State Quality with saturation.
-
-    Main ideas:
-    - Normalize by population
-    - Reward key resources only up to a target level
-    - Keep waste as a penalty
-    - Still allow raw materials to matter, but less strongly
+    State Quality model with:
+    - strong penalty for unhoused population
+    - electronics as a luxury / quality-of-life resource
+    - weak direct value for intermediate goods
+    - waste penalties
     """
     c = world.get_country(country_name)
-
     population = max(c.get("Population"), pop_floor)
 
     def per_capita(resource: str) -> float:
@@ -76,20 +71,30 @@ def state_quality(
 
     total = 0.0
 
-    # --- Raw materials: helpful, but should not dominate forever ---
-    total += weights.get("MetallicElements") * capped_score("MetallicElements", 0.5)
-    total += weights.get("Timber") * capped_score("Timber", 0.5)
+    housing = c.get("Housing")
+    housed_ratio = min(housing / population, 1.0)
+    unhoused_ratio = max(0.0, 1.0 - housed_ratio)
 
-    # --- Intermediate goods: useful, but capped ---
-    total += weights.get("MetallicAlloys") * capped_score("MetallicAlloys", 0.3)
+    # Strong nonlinear penalty for unhoused population.
+    # Cubed penalty makes large housing shortages much more severe.
+    total -= 12.0 * (unhoused_ratio ** 3)
 
-    # --- Final goods: stronger importance, capped at realistic need ---
-    total += weights.get("Housing") * capped_score("Housing", 1.0)
-    total += weights.get("Electronics") * capped_score("Electronics", 0.5)
+    # Housing still gives direct positive welfare.
+    total += 2.0 * weights.get("Housing") * housed_ratio
 
-    # --- Waste remains harmful ---
-    total += weights.get("MetallicAlloysWaste") * per_capita("MetallicAlloysWaste")
-    total += weights.get("HousingWaste") * per_capita("HousingWaste")
-    total += weights.get("ElectronicsWaste") * per_capita("ElectronicsWaste")
+    # Electronics are a luxury / development good.
+    total += 1.5 * weights.get("Electronics") * capped_score("Electronics", 0.2)
+
+    # Very weak direct value for intermediate inventory.
+    total += 0.05 * weights.get("MetallicAlloys") * capped_score("MetallicAlloys", 0.05)
+
+    # Waste penalties.
+    total += 1.2 * weights.get("MetallicAlloysWaste") * per_capita("MetallicAlloysWaste")
+    total += 1.0 * weights.get("HousingWaste") * per_capita("HousingWaste")
+    total += 1.2 * weights.get("ElectronicsWaste") * per_capita("ElectronicsWaste")
+
+    # --- Production capacity penalty (weak, but important) ---
+    total -= 0.2 * (1.0 - min(1.0, per_capita("MetallicElements") / 0.2))
+    total -= 0.2 * (1.0 - min(1.0, per_capita("Timber") / 0.2))
 
     return float(total)

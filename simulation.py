@@ -214,12 +214,14 @@ def main() -> None:
         run_name = config["run_name"]
         output_file = output_dir / f"{run_name}_schedules.txt"
 
+    for country_name in world.country_names():
         start = time.perf_counter()
+
         schedules = country_scheduler(
-            your_country_name="Valmorika",
+            your_country_name=country_name,
             resources_filename=str(resources_path),
             initial_state_filename=str(world_path),
-            output_schedule_filename=str(output_file),
+            output_schedule_filename="temp_unused_output.txt",
             num_output_schedules=5,
             depth_bound=config["depth_bound"],
             frontier_max_size=config["frontier_max_size"],
@@ -230,13 +232,15 @@ def main() -> None:
             k=config["k"],
             x0=config["x0"],
             C=config["C"],
-            transfer_resources=transfer_resources,
-            transfer_amounts=config["transfer_amounts"],
+            transfer_resources=config.get("transfer_resources", ["MetallicElements", "Timber", "MetallicAlloys", "Housing", "Electronics"]),
+            transfer_amounts=config.get("transfer_amounts", (1.0, 2.0, 3.0)),
         )
+
         elapsed = time.perf_counter() - start
 
         if not schedules:
             summary_rows.append({
+                "country": country_name,
                 "run_name": run_name,
                 "depth_bound": config["depth_bound"],
                 "frontier_max_size": config["frontier_max_size"],
@@ -262,6 +266,7 @@ def main() -> None:
         best_summary = summarize_schedule(best)
 
         summary_rows.append({
+            "country": country_name,
             "run_name": run_name,
             "depth_bound": config["depth_bound"],
             "frontier_max_size": config["frontier_max_size"],
@@ -284,6 +289,7 @@ def main() -> None:
 
     summary_path = output_dir / "simulation_summary.csv"
     fieldnames = [
+        "country",
         "run_name",
         "depth_bound",
         "frontier_max_size",

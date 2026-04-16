@@ -1,40 +1,40 @@
-Schedule 1 | Final EU: -0.946829 | Discovery Order: 1
+Schedule 1 | Final EU: -1.405156 | Discovery Order: 17
 [
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.981919
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.967339
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.955785
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.946829
+  (TRANSFER Azumarion Valmorika ((Housing 2))) EU: -1.443226
+  (TRANSFER Azumarion Valmorika ((Timber 3))) EU: -1.451133
+  (TRANSFER Azumarion Valmorika ((MetallicAlloys 3))) EU: -1.460930
+  (TRANSFORM Valmorika BUILD_HOUSING) EU: -1.405156
 ]
 
-Schedule 2 | Final EU: -1.001193 | Discovery Order: 2
+Schedule 2 | Final EU: -1.405156 | Discovery Order: 18
 [
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.981919
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.967339
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.955785
-  (TRANSFORM Valmorika BUILD_HOUSING) EU: -1.001193
+  (TRANSFER Azumarion Valmorika ((Housing 2))) EU: -1.443226
+  (TRANSFER Azumarion Valmorika ((MetallicElements 3))) EU: -1.451133
+  (TRANSFER Azumarion Valmorika ((MetallicAlloys 3))) EU: -1.460930
+  (TRANSFORM Valmorika BUILD_HOUSING) EU: -1.405156
 ]
 
-Schedule 3 | Final EU: -1.462564 | Discovery Order: 3
+Schedule 3 | Final EU: -1.405413 | Discovery Order: 19
 [
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.981919
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.967339
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.955785
-  (TRANSFER Azumarion Valmorika ((MetallicElements 3))) EU: -1.462564
+  (TRANSFER Azumarion Valmorika ((Housing 2))) EU: -1.443226
+  (TRANSFER Azumarion Valmorika ((MetallicElements 2))) EU: -1.451368
+  (TRANSFER Azumarion Valmorika ((MetallicAlloys 3))) EU: -1.461258
+  (TRANSFORM Valmorika BUILD_HOUSING) EU: -1.405413
 ]
 
-Schedule 4 | Final EU: -1.462564 | Discovery Order: 4
+Schedule 4 | Final EU: -1.405413 | Discovery Order: 20
 [
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.981919
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.967339
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.955785
-  (TRANSFER Azumarion Valmorika ((Timber 3))) EU: -1.462564
+  (TRANSFER Azumarion Valmorika ((Housing 2))) EU: -1.443226
+  (TRANSFER Azumarion Valmorika ((Timber 2))) EU: -1.451368
+  (TRANSFER Azumarion Valmorika ((MetallicAlloys 3))) EU: -1.461258
+  (TRANSFORM Valmorika BUILD_HOUSING) EU: -1.405413
 ]
 
-Schedule 5 | Final EU: -1.462779 | Discovery Order: 50
+Schedule 5 | Final EU: -1.405683 | Discovery Order: 21
 [
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.981919
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.967339
-  (TRANSFER Azumarion Valmorika ((Timber 3))) EU: -1.468982
-  (TRANSFER Azumarion Valmorika ((MetallicElements 3))) EU: -1.462779
+  (TRANSFER Azumarion Valmorika ((Housing 2))) EU: -1.443226
+  (TRANSFER Azumarion Valmorika ((MetallicAlloys 3))) EU: -1.451417
+  (TRANSFER Azumarion Valmorika ((MetallicElements 1))) EU: -1.461601
+  (TRANSFORM Valmorika BUILD_HOUSING) EU: -1.405683
 ]
 

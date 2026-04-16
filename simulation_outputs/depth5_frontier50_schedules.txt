@@ -1,45 +1,45 @@
-Schedule 1 | Final EU: -0.454846 | Discovery Order: 1
+Schedule 1 | Final EU: -0.701301 | Discovery Order: 1
 [
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.486419
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.475438
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.466719
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.459948
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.454846
+  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.519779
+  (TRANSFER Elduraja Valmorika ((Housing 3))) EU: -0.678856
+  (TRANSFER Elduraja Valmorika ((Housing 1))) EU: -0.693995
+  (TRANSFER Elduraja Valmorika ((MetallicAlloys 1))) EU: -0.703827
+  (TRANSFORM Valmorika MAKE_ELECTRONICS) EU: -0.701301
 ]
 
-Schedule 2 | Final EU: -0.491919 | Discovery Order: 2
+Schedule 2 | Final EU: -0.709533 | Discovery Order: 2
 [
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.486419
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.475438
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.466719
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.459948
-  (TRANSFORM Valmorika BUILD_HOUSING) EU: -0.491919
+  (TRANSFER Elduraja Valmorika ((Housing 3))) EU: -0.662075
+  (TRANSFER Elduraja Valmorika ((Timber 3))) EU: -0.673859
+  (TRANSFER Elduraja Valmorika ((Electronics 3))) EU: -0.684544
+  (TRANSFER Elduraja Valmorika ((MetallicElements 3))) EU: -0.696436
+  (TRANSFER Elduraja Valmorika ((MetallicElements 3))) EU: -0.709533
 ]
 
-Schedule 3 | Final EU: -0.720360 | Discovery Order: 36
+Schedule 3 | Final EU: -0.709744 | Discovery Order: 3
 [
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.486419
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.475438
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.466719
-  (TRANSFER Azumarion Valmorika ((Timber 3))) EU: -0.723954
-  (TRANSFER Azumarion Valmorika ((MetallicElements 3))) EU: -0.720360
+  (TRANSFER Elduraja Valmorika ((Housing 3))) EU: -0.662075
+  (TRANSFER Elduraja Valmorika ((Timber 3))) EU: -0.673859
+  (TRANSFER Elduraja Valmorika ((Electronics 3))) EU: -0.684544
+  (TRANSFER Elduraja Valmorika ((Timber 3))) EU: -0.696436
+  (TRANSFER Elduraja Valmorika ((MetallicElements 2))) EU: -0.709744
 ]
 
-Schedule 4 | Final EU: -0.720360 | Discovery Order: 37
+Schedule 4 | Final EU: -0.709744 | Discovery Order: 4
 [
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.486419
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.475438
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.466719
-  (TRANSFER Azumarion Valmorika ((Timber 3))) EU: -0.723954
-  (TRANSFER Azumarion Valmorika ((Timber 3))) EU: -0.720360
+  (TRANSFER Elduraja Valmorika ((Housing 3))) EU: -0.662075
+  (TRANSFER Elduraja Valmorika ((MetallicElements 3))) EU: -0.673859
+  (TRANSFER Elduraja Valmorika ((Electronics 3))) EU: -0.684544
+  (TRANSFER Elduraja Valmorika ((MetallicElements 3))) EU: -0.696436
+  (TRANSFER Elduraja Valmorika ((Timber 2))) EU: -0.709744
 ]
 
-Schedule 5 | Final EU: -0.720360 | Discovery Order: 48
+Schedule 5 | Final EU: -0.709962 | Discovery Order: 5
 [
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.486419
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.475438
-  (TRANSFORM Valmorika MAKE_ALLOYS) EU: -0.466719
-  (TRANSFER Azumarion Valmorika ((MetallicElements 3))) EU: -0.723954
-  (TRANSFER Azumarion Valmorika ((MetallicElements 3))) EU: -0.720360
+  (TRANSFER Elduraja Valmorika ((Housing 3))) EU: -0.662075
+  (TRANSFER Elduraja Valmorika ((MetallicElements 3))) EU: -0.673859
+  (TRANSFER Elduraja Valmorika ((Electronics 3))) EU: -0.684544
+  (TRANSFER Elduraja Valmorika ((Timber 2))) EU: -0.696564
+  (TRANSFER Elduraja Valmorika ((MetallicElements 2))) EU: -0.709962
 ]
 

@@ -53,11 +53,24 @@ def growth(world: WorldState) -> WorldState:
 
     for country in update.countries.values():
         pop = country.get("Population")
+        housing = country.get("Housing")
 
-        metallic_gain = max(1.0, pop // 50)
-        timber_gain = max(1.0, pop // 40)
+        housed_ratio = min(housing / max(pop, 1.0), 1.0)
+
+        # Efficiency is based on housing adequacy.
+        # Minimum 10% so growth never becomes fully stagnant.
+        efficiency = max(0.10, housed_ratio)
+
+        # Population grows steadily.
+        # Small proportional growth with a minimum of 1.
+        pop_growth = max(1.0, pop * 0.02)
+        country.add("Population", pop_growth)
+
+        # Resource growth is scaled by efficiency.
+        metallic_gain = max(1.0, (pop // 50) * efficiency)
+        timber_gain = max(1.0, (pop // 40) * efficiency)
 
         country.add("MetallicElements", metallic_gain)
         country.add("Timber", timber_gain)
-    
+
     return update

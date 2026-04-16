@@ -40,4 +40,6 @@ def expected_utility(
     dr_self = discounted_reward(world_start, world_end, self_country, weights, gamma=gamma, N=N)
 
     # 4) Expected Utility
-    return (p_schedule * dr_self) + ((1.0 - p_schedule) * C)
+    # return (p_schedule * dr_self) + ((1.0 - p_schedule) * C)
+    length_penalty = 0.01 * N  # small penalty per step
+    return (p_schedule * dr_self) + ((1.0 - p_schedule) * C) - length_penalty

@@ -104,17 +104,10 @@ def generate_successors(
     transfer_resources: Sequence[str] | None = None,
     transfer_amounts: Sequence[float] = (1.0,),
 ) -> list[tuple[str, WorldState, set[str]]]:
-    """
-    Generate valid one-step successors involving self_country.
-
-    Returns:
-        list of (action_label, successor_world, participant_countries)
-    """
     successors: list[tuple[str, WorldState, set[str]]] = []
 
     grown_world = growth(world)
 
-    # Transforms for self only.
     for transform in transforms:
         try:
             next_world = apply_transform(grown_world, self_country, transform)
@@ -124,7 +117,6 @@ def generate_successors(
         label = _format_transform_action(self_country, transform)
         successors.append((label, next_world, {self_country}))
 
-    # Transfers involving self and one other country.
     if transfer_resources is None:
         transfer_resources = []
 
@@ -133,28 +125,31 @@ def generate_successors(
             continue
 
         for resource in transfer_resources:
+            if resource == "Population":
+                continue
+
             for amount in transfer_amounts:
-                try:
-                    next_world = apply_transfer(
-                        grown_world, self_country, other_country, resource, amount
-                    )
-                    label = _format_transfer_action(
-                        self_country, other_country, resource, amount
-                    )
-                    successors.append((label, next_world, {self_country, other_country}))
-                except ValueError:
-                    pass
+                if amount <= 0:
+                    continue
 
                 try:
                     next_world = apply_transfer(
-                        grown_world, other_country, self_country, resource, amount
+                        grown_world,
+                        other_country,
+                        self_country,
+                        resource,
+                        amount,
                     )
-                    label = _format_transfer_action(
-                        other_country, self_country, resource, amount
-                    )
-                    successors.append((label, next_world, {self_country, other_country}))
                 except ValueError:
-                    pass
+                    continue
+
+                label = _format_transfer_action(
+                    other_country,
+                    self_country,
+                    resource,
+                    amount,
+                )
+                successors.append((label, next_world, {self_country, other_country}))
 
     return successors
 
