@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import Optional
 
 from source.world_state import WorldState, ResourceWeights
-from source.quality import state_quality
+from source.state_quality import state_quality
 
 
 @dataclass(frozen=True, slots=True)

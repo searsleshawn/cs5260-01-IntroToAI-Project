@@ -1,5 +1,5 @@
 from source.world_state import WorldState, CountryState, ResourceWeights
-from source.quality import state_quality
+from source.state_quality import state_quality
 
 
 def test_state_quality_basic():

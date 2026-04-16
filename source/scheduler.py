@@ -79,6 +79,23 @@ def _score_node(
     )
 
 
+def _action_sequence_key(actions: Sequence[ScheduledAction]) -> tuple[str, ...]:
+    return tuple(step.label for step in actions)
+
+
+def _world_state_key(world: WorldState) -> tuple:
+    countries_key = []
+
+    for country_name in sorted(world.countries.keys()):
+        country = world.get_country(country_name)
+        resource_items = tuple(
+            sorted((resource, float(amount)) for resource, amount in country.resources.items())
+        )
+        countries_key.append((country_name, resource_items))
+
+    return tuple(countries_key)
+
+
 def generate_successors(
     world: WorldState,
     self_country: str,
@@ -118,15 +135,23 @@ def generate_successors(
         for resource in transfer_resources:
             for amount in transfer_amounts:
                 try:
-                    next_world = apply_transfer(grown_world, self_country, other_country, resource, amount)
-                    label = _format_transfer_action(self_country, other_country, resource, amount)
+                    next_world = apply_transfer(
+                        grown_world, self_country, other_country, resource, amount
+                    )
+                    label = _format_transfer_action(
+                        self_country, other_country, resource, amount
+                    )
                     successors.append((label, next_world, {self_country, other_country}))
                 except ValueError:
                     pass
 
                 try:
-                    next_world = apply_transfer(grown_world, other_country, self_country, resource, amount)
-                    label = _format_transfer_action(other_country, self_country, resource, amount)
+                    next_world = apply_transfer(
+                        grown_world, other_country, self_country, resource, amount
+                    )
+                    label = _format_transfer_action(
+                        other_country, self_country, resource, amount
+                    )
                     successors.append((label, next_world, {self_country, other_country}))
                 except ValueError:
                     pass
@@ -227,17 +252,30 @@ def country_scheduler(
     )
 
     frontier: list[tuple[float, int, SearchNode]] = []
+    completed: list[CompletedSchedule] = []
+
+    seen_completed_sequences: set[tuple[str, ...]] = set()
+    best_seen_frontier_states: dict[tuple, float] = {}
+
     tie_break = 0
+    discovery_order = 0
+
+    root_state_key = _world_state_key(root.world)
+    best_seen_frontier_states[root_state_key] = root.eu
     heappush(frontier, (-root.eu, tie_break, root))
     tie_break += 1
-
-    completed: list[CompletedSchedule] = []
-    discovery_order = 0
 
     while frontier:
         _, _, current = heappop(frontier)
 
         if current.depth == depth_bound:
+            sequence_key = _action_sequence_key(current.actions)
+
+            if sequence_key in seen_completed_sequences:
+                continue
+
+            seen_completed_sequences.add(sequence_key)
+
             discovery_order += 1
             completed.append(
                 CompletedSchedule(
@@ -259,8 +297,6 @@ def country_scheduler(
         )
 
         if not successors:
-            # Dead-end path before depth bound: skip, unless you later decide
-            # you want these retained as incomplete schedules.
             continue
 
         for action_label, next_world, new_participants in successors:
@@ -279,6 +315,14 @@ def country_scheduler(
                 x0=x0,
                 C=C,
             )
+
+            state_key = _world_state_key(next_world)
+            previous_best_eu = best_seen_frontier_states.get(state_key)
+
+            if previous_best_eu is not None and next_eu <= previous_best_eu:
+                continue
+
+            best_seen_frontier_states[state_key] = next_eu
 
             next_actions = current.actions + [ScheduledAction(label=action_label, eu=next_eu)]
 
