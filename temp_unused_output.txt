@@ -1,40 +1,40 @@
-Schedule 1 | Final EU: -1.399646 | Discovery Order: 10
+Schedule 1 | Final EU: -1.489064 | Discovery Order: 1
 [
-  (TRANSFER Azumarion Elduraja ((Housing 2))) EU: -1.425180
-  (TRANSFER Azumarion Elduraja ((MetallicAlloys 3))) EU: -1.440285
-  (TRANSFORM Elduraja BUILD_HOUSING) EU: -1.375900
-  (TRANSFER Azumarion Elduraja ((Timber 3))) EU: -1.399646
+  (TRANSFER NovaShara Elduraja ((MetallicElements 1))) EU: -1.493304
+  (TRANSFER NovaShara Elduraja ((Timber 2))) EU: -1.488486
+  (TRANSFER NovaShara Elduraja ((MetallicElements 2))) EU: -1.487265
+  (TRANSFER NovaShara Elduraja ((Timber 2))) EU: -1.489064
 ]
 
-Schedule 2 | Final EU: -1.399646 | Discovery Order: 11
+Schedule 2 | Final EU: -1.489064 | Discovery Order: 2
 [
-  (TRANSFER Azumarion Elduraja ((Housing 2))) EU: -1.425180
-  (TRANSFER Azumarion Elduraja ((MetallicAlloys 3))) EU: -1.440285
-  (TRANSFORM Elduraja BUILD_HOUSING) EU: -1.375900
-  (TRANSFER Azumarion Elduraja ((MetallicElements 3))) EU: -1.399646
+  (TRANSFER NovaShara Elduraja ((MetallicElements 1))) EU: -1.493304
+  (TRANSFER NovaShara Elduraja ((Timber 2))) EU: -1.488486
+  (TRANSFER NovaShara Elduraja ((Timber 1))) EU: -1.488861
+  (TRANSFER NovaShara Elduraja ((MetallicElements 3))) EU: -1.489064
 ]
 
-Schedule 3 | Final EU: -1.400039 | Discovery Order: 20
+Schedule 3 | Final EU: -1.489173 | Discovery Order: 15
 [
-  (TRANSFER Azumarion Elduraja ((Housing 2))) EU: -1.425180
-  (TRANSFER Azumarion Elduraja ((MetallicAlloys 2))) EU: -1.440711
-  (TRANSFORM Elduraja BUILD_HOUSING) EU: -1.376259
-  (TRANSFER Azumarion Elduraja ((Timber 3))) EU: -1.400039
+  (TRANSFER Pontakiri Elduraja ((MetallicElements 1))) EU: -1.493452
+  (TRANSFER Pontakiri Elduraja ((Timber 2))) EU: -1.488621
+  (TRANSFER Pontakiri Elduraja ((MetallicElements 2))) EU: -1.487386
+  (TRANSFER Pontakiri Elduraja ((Timber 2))) EU: -1.489173
 ]
 
-Schedule 4 | Final EU: -1.400039 | Discovery Order: 21
+Schedule 4 | Final EU: -1.489173 | Discovery Order: 16
 [
-  (TRANSFER Azumarion Elduraja ((Housing 2))) EU: -1.425180
-  (TRANSFER Azumarion Elduraja ((MetallicAlloys 2))) EU: -1.440711
-  (TRANSFORM Elduraja BUILD_HOUSING) EU: -1.376259
-  (TRANSFER Azumarion Elduraja ((MetallicElements 3))) EU: -1.400039
+  (TRANSFER Pontakiri Elduraja ((MetallicElements 1))) EU: -1.493452
+  (TRANSFER Pontakiri Elduraja ((Timber 2))) EU: -1.488621
+  (TRANSFER Pontakiri Elduraja ((Timber 1))) EU: -1.489102
+  (TRANSFER Pontakiri Elduraja ((MetallicElements 3))) EU: -1.489173
 ]
 
-Schedule 5 | Final EU: -1.400232 | Discovery Order: 1
+Schedule 5 | Final EU: -1.489358 | Discovery Order: 24
 [
-  (TRANSFORM Elduraja MAKE_ALLOYS) EU: -1.041647
-  (TRANSFORM Elduraja MAKE_ALLOYS) EU: -1.076063
-  (TRANSFORM Elduraja BUILD_HOUSING) EU: -0.899850
-  (TRANSFER Valmorika Elduraja ((Housing 2))) EU: -1.400232
+  (TRANSFER Azumarion Elduraja ((MetallicElements 1))) EU: -1.493704
+  (TRANSFER Azumarion Elduraja ((Timber 2))) EU: -1.488850
+  (TRANSFER Azumarion Elduraja ((MetallicElements 2))) EU: -1.487592
+  (TRANSFER Azumarion Elduraja ((Timber 2))) EU: -1.489358
 ]
 
